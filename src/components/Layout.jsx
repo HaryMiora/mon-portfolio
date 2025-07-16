@@ -9,10 +9,14 @@ import Footer from './Footer';
 
 function Layout({ darkMode, toggleDarkMode }) {
   return (
-    <div className="flex">
-      <Sidebar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+    <div className="flex h-screen">
+      {/* Colonne gauche : Sidebar (50%) */}
+      <div className="w-1/2 overflow-y-auto border-r border-gray-200 dark:border-gray-700">
+        <Sidebar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      </div>
 
-      <main className="w-3/4 px-10 py-16 space-y-24 overflow-y-auto h-screen scroll-smooth">
+      {/* Colonne droite : Contenu scrollable (50%) */}
+      <main className="w-1/2 px-10 py-16 space-y-24 overflow-y-auto scroll-smooth">
         <section id="home"><Accueil /></section>
         <section id="about"><APropos /></section>
         <section id="skills"><Competences /></section>
