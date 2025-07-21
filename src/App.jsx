@@ -2,19 +2,37 @@ import React, { useState, useEffect } from 'react';
 import Layout from './components/Layout';
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(() => {
+    const saved = localStorage.getItem('darkMode');
+    return saved ? JSON.parse(saved) : false; // Commencer en mode clair par défaut
+  });
 
   useEffect(() => {
+    localStorage.setItem('darkMode', JSON.stringify(darkMode));
+    const htmlElement = document.documentElement;
+    
     if (darkMode) {
-      document.documentElement.classList.add('dark');
+      htmlElement.classList.add('dark');
     } else {
-      document.documentElement.classList.remove('dark');
+      htmlElement.classList.remove('dark');
     }
+    
+    // Debug - vérifiez dans la console
+    console.log('Dark mode:', darkMode);
+    console.log('HTML classes:', htmlElement.className);
   }, [darkMode]);
 
+  const toggleDarkMode = () => {
+    setDarkMode(prev => !prev);
+  };
+
   return (
-    <div className="min-h-screen font-sans text-gray-900 dark:text-white bg-white dark:bg-gray-900 transition-colors duration-300">
-      <Layout darkMode={darkMode} toggleDarkMode={() => setDarkMode(!darkMode)} />
+    <div className={`font-sans min-h-screen transition-colors duration-300 ${
+      darkMode 
+        ? 'text-white bg-gray-900' 
+        : 'text-gray-900 bg-white'
+    }`}>
+      <Layout darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
     </div>
   );
 }
