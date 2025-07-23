@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../hooks/useLanguage';
+import profileImage from '../assets/images/profile.jpg'; // image renommée
 
 function APropos() {
   const { t } = useLanguage();
@@ -56,10 +57,12 @@ function APropos() {
 
           <div className="lg:col-span-1">
             <div className="relative group">
-              <div className="relative z-10 rounded-lg overflow-hidden bg-teal-600/20 dark:bg-teal-400/20 p-4">
-                <div className="aspect-square bg-gradient-to-br from-teal-400 to-blue-500 rounded-lg flex items-center justify-center">
-                  <span className="text-4xl font-bold text-white">M</span>
-                </div>
+              <div className="relative z-10 rounded-lg overflow-hidden">
+                <img 
+                  src={profileImage} 
+                  alt="Miora - Développeur Full Stack"
+                  className="w-full h-full object-cover rounded-lg transition-all duration-300"
+                />
               </div>
               <div className="absolute inset-0 border-2 border-teal-600 dark:border-teal-400 rounded-lg translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-200"></div>
             </div>
