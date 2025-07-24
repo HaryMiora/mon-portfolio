@@ -1,26 +1,13 @@
 import React from 'react';
 import { useLanguage } from '../hooks/useLanguage';
-import profileImage from '../assets/images/profile.jpg'; // image renommée
 
 function APropos() {
   const { t } = useLanguage();
 
-  const technologies = [
-    'JavaScript (ES6+)',
-    'TypeScript',
-    'React',
-    'Vue.js',
-    'Node.js',
-    'Express.js',
-    'Tailwind CSS',
-    'MySQL',
-    'MongoDB',
-    'Git & GitHub'
-  ];
-
   return (
     <section id="about" className="py-20 px-8">
-      <div className="max-w-4xl">
+      <div className="max-w-4xl mx-auto">
+        {/* Titre */}
         <div className="flex items-center mb-10">
           <h2 className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-4">
             <span className="text-teal-600 dark:text-teal-400 font-mono text-xl mr-2">01.</span>
@@ -29,44 +16,19 @@ function APropos() {
           <div className="flex-1 h-px bg-slate-300 dark:bg-slate-600 ml-4"></div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          <div className="lg:col-span-2 space-y-4">
-            <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-              {t('aboutText1')}
-            </p>
-            
-            <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-              {t('aboutText2')}
-            </p>
-            
-            <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-              {t('aboutText3')}
-            </p>
+        {/* Texte principal */}
+        <div className="space-y-6 text-slate-600 dark:text-slate-400 leading-relaxed text-base sm:text-lg">
+          <p>
+            Passionnée par le développement logiciel, je suis actuellement étudiante en Master 1 Informatique à l’École Nationale d’Informatique de Fianarantsoa. J’ai découvert le développement web en 2023, et depuis, je n’ai cessé d’approfondir mes compétences à travers des projets personnels, scolaires et des stages.
+          </p>
 
-            <div className="grid grid-cols-2 gap-2 mt-6">
-              {technologies.map((tech, index) => (
-                <div key={index} className="flex items-center">
-                  <span className="text-teal-600 dark:text-teal-400 mr-2">▹</span>
-                  <span className="text-sm font-mono text-slate-600 dark:text-slate-400">
-                    {tech}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
+          <p>
+            J’aime transformer des idées en interfaces fonctionnelles et esthétiques. Mes expériences m’ont permis de travailler sur des projets concrets tels que des systèmes de gestion de tickets, des sites de location de voitures ou encore des portails bancaires, en utilisant des technologies comme React.js, Nest.js ou MySQL.
+          </p>
 
-          <div className="lg:col-span-1">
-            <div className="relative group">
-              <div className="relative z-10 rounded-lg overflow-hidden">
-                <img 
-                  src={profileImage} 
-                  alt="Miora - Développeur Full Stack"
-                  className="w-full h-full object-cover rounded-lg transition-all duration-300"
-                />
-              </div>
-              <div className="absolute inset-0 border-2 border-teal-600 dark:border-teal-400 rounded-lg translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-200"></div>
-            </div>
-          </div>
+          <p>
+            Curieuse, rigoureuse et motivée, je m’efforce toujours de proposer des solutions performantes, accessibles et adaptées aux besoins des utilisateurs.
+          </p>
         </div>
       </div>
     </section>

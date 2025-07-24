@@ -1,49 +1,96 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLanguage } from '../hooks/useLanguage';
 
 function Contact() {
-  const { t } = useLanguage();
+  useLanguage();
+
+  const [formData, setFormData] = useState({
+    nom: '',
+    email: '',
+    message: ''
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Action personnalisée (ex: intégration EmailJS, API, etc.)
+    alert('Message envoyé ! Merci de m’avoir contacté.');
+    setFormData({ nom: '', email: '', message: '' });
+  };
 
   return (
-    <section id="contact" className="py-20 px-8 text-center">
+    <section id="contact" className="py-20 px-6">
       <div className="max-w-2xl mx-auto">
-        <p className="text-teal-600 dark:text-teal-400 font-mono text-base mb-4">
-          04. {t('contactTitle')}
-        </p>
-        
-        <h2 className="text-4xl lg:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-6">
-          {t('contactSubtitle')}
-        </h2>
-        
-        <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-12">
-          {t('contactText')}
-        </p>
-        
-        <a
-          href="mailto:raoeliarijaonamiora@gmail.com"
-          className="inline-flex items-center px-8 py-4 border-2 border-teal-600 dark:border-teal-400 text-teal-600 dark:text-teal-400 font-semibold rounded-lg hover:bg-teal-600/10 dark:hover:bg-teal-400/10 transition-all duration-200"
-        >
-          {t('sayHello')}
-        </a>
-        
-        <div className="mt-16 pt-8 border-t border-slate-200 dark:border-slate-700">
-          <div className="flex justify-center gap-8 text-slate-500 dark:text-slate-400">
-            <a 
-              href="mailto:raoeliarijaonamiora@gmail.com"
-              className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors duration-200"
-            >
-              📧 raoeliarijaonamiora@gmail.com
-            </a>
-            <a 
-              href="https://github.com/HaryMiora"
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors duration-200"
-            >
-              🔗 GitHub
-            </a>
-          </div>
+        {/* Titre */}
+        <div className="flex items-center mb-10">
+          <h2 className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-4">
+            <span className="text-teal-600 dark:text-teal-400 font-mono text-xl mr-2">04.</span>
+            Contact
+          </h2>
+          <div className="flex-1 h-px bg-slate-300 dark:bg-slate-600 ml-4"></div>
         </div>
+
+        {/* Formulaire de contact */}
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="flex flex-col text-left">
+            <label htmlFor="nom" className="text-slate-700 dark:text-slate-300 mb-1 font-semibold">
+              Nom
+            </label>
+            <input
+              type="text"
+              name="nom"
+              id="nom"
+              value={formData.nom}
+              onChange={handleChange}
+              required
+              className="px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-blue-900 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
+            />
+          </div>
+
+          <div className="flex flex-col text-left">
+            <label htmlFor="email" className="text-slate-700 dark:text-slate-300 mb-1 font-semibold">
+              Adresse Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-blue-900 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
+            />
+          </div>
+
+          <div className="flex flex-col text-left">
+            <label htmlFor="message" className="text-slate-700 dark:text-slate-300 mb-1 font-semibold">
+              Message
+            </label>
+            <textarea
+              name="message"
+              id="message"
+              rows="5"
+              value={formData.message}
+              onChange={handleChange}
+              required
+              className="px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-blue-900 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500 resize-none"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            className="mt-4 inline-block bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200"
+          >
+            Envoyer le message
+          </button>
+        </form>
       </div>
     </section>
   );

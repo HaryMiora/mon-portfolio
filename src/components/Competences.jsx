@@ -1,31 +1,79 @@
 import React from 'react';
 import { useLanguage } from '../hooks/useLanguage';
 
+// On utilise les images téléchargées dans le dossier "assets/skills"
+import htmlLogo from '../assets/skills/html5.svg';
+import cssLogo from '../assets/skills/css3.png';
+import jsLogo from '../assets/skills/javascript.svg';
+import tsLogo from '../assets/skills/typescript.svg';
+import reactLogo from '../assets/skills/react.svg';
+import vueLogo from '../assets/skills/vue.svg';
+import tailwindLogo from '../assets/skills/tailwindcss.svg';
+
+import nodeLogo from '../assets/skills/nodejs.svg';
+import expressLogo from '../assets/skills/express.png';
+import phpLogo from '../assets/skills/php.svg';
+
+import mysqlLogo from '../assets/skills/mysql.svg';
+import mongoLogo from '../assets/skills/mongodb.svg';
+import postgresLogo from '../assets/skills/postgresql.svg';
+
+import gitLogo from '../assets/skills/git.svg';
+import githubLogo from '../assets/skills/github.svg';
+import viteLogo from '../assets/skills/vite.svg';
+import webpackLogo from '../assets/skills/webpack.svg';
+import figmaLogo from '../assets/skills/figma.svg';
+import postmanLogo from '../assets/skills/postman.svg';
+
+const skillCategories = [
+  {
+    title: 'Frontend',
+    skills: [
+      { name: 'HTML5', icon: htmlLogo },
+      { name: 'CSS3', icon: cssLogo },
+      { name: 'JavaScript', icon: jsLogo },
+      { name: 'TypeScript', icon: tsLogo },
+      { name: 'React', icon: reactLogo },
+      { name: 'Vue.js', icon: vueLogo },
+      { name: 'Tailwind CSS', icon: tailwindLogo },
+    ],
+  },
+  {
+    title: 'Backend',
+    skills: [
+      { name: 'Node.js', icon: nodeLogo },
+      { name: 'Express.js', icon: expressLogo },
+      { name: 'PHP', icon: phpLogo },
+    ],
+  },
+  {
+    title: 'Database',
+    skills: [
+      { name: 'MySQL', icon: mysqlLogo },
+      { name: 'MongoDB', icon: mongoLogo },
+      { name: 'PostgreSQL', icon: postgresLogo },
+    ],
+  },
+  {
+    title: 'Outils & Autres',
+    skills: [
+      { name: 'Git', icon: gitLogo },
+      { name: 'GitHub', icon: githubLogo },
+      { name: 'Vite', icon: viteLogo },
+      { name: 'Webpack', icon: webpackLogo },
+      { name: 'Figma', icon: figmaLogo },
+      { name: 'Postman', icon: postmanLogo },
+    ],
+  },
+];
+
 function Competences() {
   const { t } = useLanguage();
 
-  const skillCategories = [
-    {
-      title: 'Frontend',
-      skills: ['HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'React', 'Vue.js', 'Tailwind CSS']
-    },
-    {
-      title: 'Backend',
-      skills: ['Node.js', 'Express.js', 'PHP', 'Python']
-    },
-    {
-      title: 'Database',
-      skills: ['MySQL', 'MongoDB', 'PostgreSQL']
-    },
-    {
-      title: 'Tools & Others',
-      skills: ['Git', 'GitHub', 'Vite', 'Webpack', 'Figma', 'Postman']
-    }
-  ];
-
   return (
     <section id="skills" className="py-20 px-8">
-      <div className="max-w-4xl">
+      <div className="max-w-4xl mx-auto">
+        {/* Titre */}
         <div className="flex items-center mb-10">
           <h2 className="text-3xl font-bold text-slate-800 dark:text-slate-100 mr-4">
             <span className="text-teal-600 dark:text-teal-400 font-mono text-xl mr-2">02.</span>
@@ -34,20 +82,28 @@ function Competences() {
           <div className="flex-1 h-px bg-slate-300 dark:bg-slate-600 ml-4"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Catégories de compétences */}
+        <div className="space-y-10">
           {skillCategories.map((category, index) => (
-            <div key={index} className="bg-slate-50 dark:bg-slate-800/50 rounded-lg p-6 border border-slate-200 dark:border-slate-700">
+            <div key={index}>
               <h3 className="text-xl font-semibold text-slate-800 dark:text-slate-100 mb-4">
                 {category.title}
               </h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-4">
                 {category.skills.map((skill, skillIndex) => (
-                  <span
+                  <div
                     key={skillIndex}
-                    className="px-3 py-1 text-sm font-mono bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full border border-teal-200 dark:border-teal-700"
+                    className="flex flex-col items-center justify-center w-20"
                   >
-                    {skill}
-                  </span>
+                    <img
+                      src={skill.icon}
+                      alt={skill.name}
+                      className="w-10 h-10 object-contain hover:scale-110 transition-transform duration-200"
+                    />
+                    <span className="mt-2 text-sm text-slate-700 dark:text-slate-300 text-center">
+                      {skill.name}
+                    </span>
+                  </div>
                 ))}
               </div>
             </div>
