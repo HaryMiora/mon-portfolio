@@ -1,11 +1,11 @@
 import React from 'react';
 import Sidebar from './Sidebar';
-import Accueil from './Accueil';
-import APropos from './APropos';
-import Competences from './Competences';
-import Projets from './Projets';
-import Contact from './Contact';
-import Footer from './Footer';
+import Accueil from '../sections/Accueil';
+import APropos from '../sections/APropos';
+import Competences from '../sections/Competences';
+import Projets from '../sections/Projets';
+import Contact from '../sections/Contact';
+import Footer from '../layout/Footer';
 
 function Layout({ darkMode, toggleDarkMode }) {
   return (

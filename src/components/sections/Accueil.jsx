@@ -1,6 +1,6 @@
 import React from 'react';
-import { useLanguage } from '../hooks/useLanguage';
-import profileImage from '../assets/images/profile.jpg';
+import { useLanguage } from '../../hooks/useLanguage';
+import profileImage from '../../assets/images/profile.jpg';
 
 function Accueil() {
   const { t } = useLanguage();

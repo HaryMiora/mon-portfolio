@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import { HiSun, HiMoon } from 'react-icons/hi';
-import { useLanguage } from '../hooks/useLanguage';
+import { useLanguage } from '../../hooks/useLanguage';
 
 function Sidebar({ darkMode, toggleDarkMode }) {
   const { language, toggleLanguage, t } = useLanguage();

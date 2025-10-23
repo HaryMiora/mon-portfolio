@@ -1,29 +1,29 @@
 import React from 'react';
-import { useLanguage } from '../hooks/useLanguage';
+import { useLanguage } from '../../hooks/useLanguage';
 
 // On utilise les images téléchargées dans le dossier "assets/skills"
-import htmlLogo from '../assets/skills/html5.svg';
-import cssLogo from '../assets/skills/css3.png';
-import jsLogo from '../assets/skills/javascript.svg';
-import tsLogo from '../assets/skills/typescript.svg';
-import reactLogo from '../assets/skills/react.svg';
-import vueLogo from '../assets/skills/vue.svg';
-import tailwindLogo from '../assets/skills/tailwindcss.svg';
+import htmlLogo from '../../assets/skills/html5.svg';
+import cssLogo from '../../assets/skills/css3.png';
+import jsLogo from '../../assets/skills/javascript.svg';
+import tsLogo from '../../assets/skills/typescript.svg';
+import reactLogo from '../../assets/skills/react.svg';
+import vueLogo from '../../assets/skills/vue.svg';
+import tailwindLogo from '../../assets/skills/tailwindcss.svg';
 
-import nodeLogo from '../assets/skills/nodejs.svg';
-import expressLogo from '../assets/skills/express.png';
-import phpLogo from '../assets/skills/php.svg';
+import nodeLogo from '../../assets/skills/nodejs.svg';
+import expressLogo from '../../assets/skills/express.png';
+import phpLogo from '../../assets/skills/php.svg';
 
-import mysqlLogo from '../assets/skills/mysql.svg';
-import mongoLogo from '../assets/skills/mongodb.svg';
-import postgresLogo from '../assets/skills/postgresql.svg';
+import mysqlLogo from '../../assets/skills/mysql.svg';
+import mongoLogo from '../../assets/skills/mongodb.svg';
+import postgresLogo from '../../assets/skills/postgresql.svg';
 
-import gitLogo from '../assets/skills/git.svg';
-import githubLogo from '../assets/skills/github.svg';
-import viteLogo from '../assets/skills/vite.svg';
-import webpackLogo from '../assets/skills/webpack.svg';
-import figmaLogo from '../assets/skills/figma.svg';
-import postmanLogo from '../assets/skills/postman.svg';
+import gitLogo from '../../assets/skills/git.svg';
+import githubLogo from '../../assets/skills/github.svg';
+import viteLogo from '../../assets/skills/vite.svg';
+import webpackLogo from '../../assets/skills/webpack.svg';
+import figmaLogo from '../../assets/skills/figma.svg';
+import postmanLogo from '../../assets/skills/postman.svg';
 
 const skillCategories = [
   {
