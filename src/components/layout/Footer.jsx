@@ -7,7 +7,14 @@ function Footer() {
 
   return (
     <footer className="py-10 px-6 border-t border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-blue-900">
-      <div className="max-w-4xl mx-auto text-center space-y-4">
+      <div
+        className="
+          max-w-4xl mx-auto
+          flex flex-col md:flex-row items-center justify-between
+          text-center md:text-left
+          space-y-4 md:space-y-0
+        "
+      >
         {/* Texte principal */}
         <p className="text-sm text-slate-600 dark:text-slate-300 font-mono">
           {t('builtBy') || 'Développé avec ❤️ par Hary Miora Raoeliarijaona'}
