@@ -15,12 +15,11 @@ function Layout({ darkMode, toggleDarkMode }) {
 
   return (
     <div
-      className={`flex flex-col lg:flex-row min-h-screen transition-colors duration-300 ${
+      className={`flex flex-col min-h-screen transition-colors duration-300 ${
         darkMode ? 'bg-gray-900' : 'bg-white'
       }`}
     >
-      {/* ===== Sidebar (mobile overlay + desktop fixed) ===== */}
-      {/* Overlay for mobile */}
+      {/* Overlay mobile */}
       {sidebarOpen && (
         <div
           className="fixed inset-0 bg-black/50 z-40 lg:hidden"
@@ -28,11 +27,12 @@ function Layout({ darkMode, toggleDarkMode }) {
         />
       )}
 
-      {/* Sidebar content */}
+      {/* Sidebar: fixed for mobile overlay & fixed on desktop (left) */}
       <div
         className={`
-          fixed lg:static z-50
-          top-0 left-0 h-full w-4/5 sm:w-2/5
+          fixed top-0 left-0 h-full
+          w-4/5 sm:w-2/5 lg:w-2/5
+          z-50
           transform transition-transform duration-300
           ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
           lg:translate-x-0
@@ -41,10 +41,8 @@ function Layout({ darkMode, toggleDarkMode }) {
         <Sidebar darkMode={darkMode} toggleDarkMode={toggleDarkMode} closeSidebar={closeSidebar} />
       </div>
 
-      {/* ===== Main content ===== */}
-      <main
-        className="w-full lg:w-3/5 lg:ml-auto min-h-screen pt-6 lg:pt-0"
-      >
+      {/* Main: on large screens leave space for the fixed sidebar (40% = 2/5) */}
+      <main className="w-full min-h-screen pt-6 lg:pt-0 lg:ml-[40%]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <Accueil toggleSidebar={toggleSidebar} />
           <APropos />
