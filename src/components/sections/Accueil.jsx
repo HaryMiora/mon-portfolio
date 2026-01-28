@@ -1,24 +1,16 @@
 import React from 'react';
 import { useLanguage } from '../../hooks/useLanguage';
-import { HiMenuAlt3 } from 'react-icons/hi';
 import profileImage from '../../assets/images/profile.jpg';
 import cvFile from '../../assets/files/CV_HaryMiora.pdf';
 
-function Accueil({ toggleSidebar }) {
+function Accueil() {
   const { t } = useLanguage();
 
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col justify-center px-6 py-20 relative"
+      className="min-h-screen flex flex-col justify-center px-6 py-20"
     >
-      {/* ===== Bouton menu burger (mobile) ===== */}
-      <button
-        onClick={toggleSidebar}
-        className="absolute top-6 left-4 p-2 rounded-lg bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-100 lg:hidden"
-      >
-        <HiMenuAlt3 size={22} />
-      </button>
 
       {/* ===== Contenu principal ===== */}
       <div
